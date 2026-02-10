@@ -43,7 +43,7 @@ Then paste the following, filling in your project details:
 
 **What this does:** Claude reads all the configuration files, fills in your project name, institution, and preferences, then enters contractor mode — planning, implementing, reviewing, and verifying autonomously. You approve the plan and Claude handles the rest.
 
-**Prefer to configure manually?** See the [full guide](https://github.com/nemmerel/claude-workflow/workflow-guide.html#sec-setup) for step-by-step manual setup instructions.
+**Prefer to configure manually?** See the [full guide](https://github.com/nemmerel/claude-workflow/blob/main/guide/workflow-guide.html#sec-setup) for step-by-step manual setup instructions.
 
 ---
 
@@ -60,14 +60,14 @@ Instead of one general-purpose reviewer, 10 focused agents each check one dimens
 - **proofreader** — grammar/typos
 - **slide-auditor** — visual layout
 - **pedagogy-reviewer** — teaching quality
-- **r-reviewer** — R code quality
+- **stata-reviewer** — Stata code quality
 - **domain-reviewer** — field-specific correctness (template — customize for your field)
 
 Each is better at its narrow task than a generalist would be. The `/slide-excellence` skill runs them all in parallel.
 
 ### Adversarial QA
 
-Two agents work in opposition: the **critic** reads both Beamer and Quarto and produces harsh findings. The **fixer** implements exactly what the critic found. They loop until the critic says "APPROVED" (or 5 rounds max). This catches errors that single-pass review misses.
+Two agents work in opposition: the **critic** reads the Beamer and produces harsh findings. The **fixer** implements exactly what the critic found. They loop until the critic says "APPROVED" (or 5 rounds max). This catches errors that single-pass review misses.
 
 ### Quality Gates
 
@@ -80,7 +80,7 @@ Every file gets a score (0–100). Scores below threshold block the action:
 
 ## The Guide
 
-For a comprehensive walkthrough, read the **[full guide](https://psantanna.com/claude-code-my-workflow/workflow-guide.html)** (or see the [source](guide/workflow-guide.qmd)).
+For a comprehensive walkthrough, read the **[full guide] (workflow_guide.html)
 
 It covers:
 1. **Why This Workflow Exists** — the problem and the vision
