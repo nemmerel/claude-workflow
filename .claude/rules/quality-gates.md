@@ -1,8 +1,7 @@
 ---
 paths:
-  - "Slides/**/*.tex"
-  - "Quarto/**/*.qmd"
-  - "scripts/**/*.R"
+  - "slides/**/*.tex"
+  - "scripts/**/*.do"
 ---
 
 # Quality Gates & Scoring Rubrics
@@ -13,21 +12,8 @@ paths:
 - **90/100 = PR** -- ready for deployment
 - **95/100 = Excellence** -- aspirational
 
-## Quarto Slides (.qmd)
 
-| Severity | Issue | Deduction |
-|----------|-------|-----------|
-| Critical | Compilation failure | -100 |
-| Critical | Equation overflow | -20 |
-| Critical | Broken citation | -15 |
-| Critical | Typo in equation | -10 |
-| Major | Text overflow | -5 |
-| Major | TikZ label overlap | -5 |
-| Major | Notation inconsistency | -3 |
-| Minor | Font size reduction | -1 per slide |
-| Minor | Long lines (>100 chars) | -1 (EXCEPT documented math formulas) |
-
-## R Scripts (.R)
+## Stata do files (.do)
 
 | Severity | Issue | Deduction |
 |----------|-------|-----------|
@@ -41,7 +27,7 @@ paths:
 
 | Severity | Issue | Deduction |
 |----------|-------|-----------|
-| Critical | XeLaTeX compilation failure | -100 |
+| Critical | Latex compilation failure | -100 |
 | Critical | Undefined citation | -15 |
 | Critical | Overfull hbox > 10pt | -10 |
 

@@ -1,10 +1,11 @@
 # My Claude Code Setup
 
-> **Work in progress.** This is not meant to be a polished guide for everyone. It's mostly a summary of how I've been using Claude Code for academic work — creating lecture slides, writing R scripts, managing Beamer-to-Quarto workflows, and so on. I keep learning new things, and as I do, I keep updating these files. This is just a way for me to share what I've figured out with friends and colleagues.
+> **Work in progress.** This is a guide for using Claude Code to write slides for beamer and to produce research. 
 
-**Live site:** [psantanna.com/claude-code-my-workflow](https://psantanna.com/claude-code-my-workflow/)
 
-A ready-to-fork starter kit for academics using [Claude Code](https://code.claude.com/docs/en/overview) with **LaTeX/Beamer + R + Quarto**. You describe what you want; Claude plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results — like a contractor who handles the entire job. Extracted from a production PhD course (6 lectures, 800+ slides).
+**Live site:** [https://github.com/nemmerel/claude-workflow](https://github.com/nemmerel/claude-workflow)
+
+A ready-to-fork starter kit for academics using [Claude Code](https://code.claude.com/docs/en/overview) with **LaTeX/Beamer + Stata**. You describe what you want; Claude plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results — like a contractor who handles the entire job. 
 
 ---
 
@@ -14,7 +15,7 @@ A ready-to-fork starter kit for academics using [Claude Code](https://code.claud
 
 ```bash
 # Fork this repo on GitHub (click "Fork" on the repo page), then:
-git clone https://github.com/YOUR_USERNAME/claude-code-my-workflow.git my-project
+git clone https://github.com/YOUR_USERNAME/claude-workflow.git my-project
 cd my-project
 ```
 
@@ -26,7 +27,7 @@ Replace `YOUR_USERNAME` with your GitHub username.
 claude
 ```
 
-**Using VS Code?** Open the Claude Code panel instead. Everything works the same — see the [full guide](https://psantanna.com/claude-code-my-workflow/workflow-guide.html#sec-setup) for details.
+**Using VS Code? I highly recommend that you do** Open the terminal in VS Code, and type claude. 
 
 Then paste the following, filling in your project details:
 
@@ -34,7 +35,7 @@ Then paste the following, filling in your project details:
 >
 > I want our collaboration to be structured, precise, and rigorous. When creating visuals, everything must be polished and publication-ready.
 >
-> I've set up the Claude Code academic workflow (forked from `pedrohcgs/claude-code-my-workflow`). The configuration files are already in this repo. Please read them, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in `CLAUDE.md`, adjust rules if needed, and propose any customizations specific to my use case.
+> I've set up the Claude Code academic workflow (forked from `https://github.com/nemmerel/claude-workflow`). The configuration files are already in this repo. Please read them, understand the workflow, and then **update all configuration files to fit my project** — fill in placeholders in `CLAUDE.md`, adjust rules if needed, and propose any customizations specific to my use case.
 >
 > After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode — coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make.
 >
@@ -42,7 +43,7 @@ Then paste the following, filling in your project details:
 
 **What this does:** Claude reads all the configuration files, fills in your project name, institution, and preferences, then enters contractor mode — planning, implementing, reviewing, and verifying autonomously. You approve the plan and Claude handles the rest.
 
-**Prefer to configure manually?** See the [full guide](https://psantanna.com/claude-code-my-workflow/workflow-guide.html#sec-setup) for step-by-step manual setup instructions.
+**Prefer to configure manually?** See the [full guide](https://github.com/nemmerel/claude-workflow/workflow-guide.html#sec-setup) for step-by-step manual setup instructions.
 
 ---
 
