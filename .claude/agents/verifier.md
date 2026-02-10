@@ -1,6 +1,6 @@
 ---
 name: verifier
-description: End-to-end verification agent. Checks that slides compile, render, deploy, and display correctly. Use proactively before committing or creating PRs.
+description: End-to-end verification agent. Checks that slides compile and display correctly. Use proactively before committing or creating PRs.
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---
@@ -24,7 +24,7 @@ TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode FILENAME.tex 
 - Verify PDF was generated: `ls -la FILENAME.pdf`
 
 ### For bibliography:
-- Check that all `\cite` / `@key` references in modified files have entries in the .bib file
+- Check that all `\cite` references in modified files have entries in the .bib file
 
 ## Report Format
 
@@ -36,9 +36,6 @@ TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode FILENAME.tex 
 - **Warnings:** N overfull hbox, N undefined citations
 - **Output exists:** Yes / No
 - **Output size:** X KB / X MB
-- **TikZ freshness:** FRESH / STALE (N diagrams differ)
-- **Plotly charts:** N detected (expected: M)
-- **Environment parity:** All matched / Missing: [list]
 
 ### Summary
 - Total files checked: N
@@ -52,4 +49,3 @@ TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode FILENAME.tex 
 - Use `TEXINPUTS` and `BIBINPUTS` environment variables for LaTeX
 - Report ALL issues, even minor warnings
 - If a file fails to compile/render, capture and report the error message
-- TikZ freshness is a HARD GATE — stale SVGs should be flagged as failures

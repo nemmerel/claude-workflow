@@ -1,8 +1,7 @@
 ---
 paths:
   - "Slides/**/*.tex"
-  - "Quarto/**/*.qmd"
-  - "docs/**"
+  - "scripts/**/*.do"
 ---
 
 # Task Completion Verification Protocol
@@ -10,13 +9,14 @@ paths:
 **At the end of EVERY task, Claude MUST verify the output works correctly.** This is non-negotiable.
 
 ## For LaTeX/Beamer Slides:
-1. Compile with latex and check for errors
+1. Compile with pdfLaTeX (`pdflatex` or `latexmk -pdf`) and check for errors
 2. Open the PDF to verify figures render
 3. Check for overfull hbox warnings
+4. Verify preamble matches `templates/beamer_template.tex` (16:9, dark red, newtxtext/newtxmath)
 
-## For do files:
-1. Run the do file
-2. Verify output files (dta, png) were created 
+## For Stata Do-Files:
+1. Run the do-file
+2. Verify output files (.dta, .png) were created
 3. Spot-check estimates for reasonable magnitude
 
 ## Common Pitfalls:
@@ -25,9 +25,7 @@ paths:
 ## Verification Checklist:
 ```
 [ ] Output file created successfully
-[ ] No compilation/render errors
+[ ] No compilation/run errors
 [ ] Images/figures display correctly
-[ ] Paths resolve in deployment location (docs/)
-[ ] Opened in browser/viewer to confirm visual appearance
 [ ] Reported results to user
 ```

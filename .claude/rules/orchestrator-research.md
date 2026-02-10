@@ -1,13 +1,13 @@
 ---
 paths:
-  - "scripts/**/*.R"
+  - "scripts/**/*.do"
   - "explorations/**"
-  - "figures/**/*.R"
+  - "figures/**/*.do"
 ---
 
 # Research Project Orchestrator (Simplified)
 
-**For Stata do files, simulations, and data analysis** -- use this simplified loop instead of the full multi-agent orchestrator.
+**For Stata do-files, simulations, and data analysis** -- use this simplified loop instead of the full multi-agent orchestrator.
 
 ## The Simple Loop
 
@@ -17,8 +17,8 @@ Plan approved → orchestrator activates
   Step 1: IMPLEMENT — Execute plan steps
   │
   Step 2: VERIFY — Run code, check outputs
-  │         Stata do files: do file runs without error
-  │         Simulations: set.seed reproducibility
+  │         Stata do-files: do-file runs without error
+  │         Simulations: set seed reproducibility
   │         Plots: PNG created, correct format
   │         If verification fails → fix → re-verify
   │
@@ -36,7 +36,7 @@ Plan approved → orchestrator activates
 - [ ] Do-file runs without errors
 - [ ] All packages loaded at top
 - [ ] No hardcoded absolute paths
-- [ ] `set.seed()` once at top if stochastic
+- [ ] `set seed` once at top if stochastic
 - [ ] Output files created at expected paths
 - [ ] Tolerance checks pass (if applicable)
 - [ ] Quality score >= 80

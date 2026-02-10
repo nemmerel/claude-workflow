@@ -1,5 +1,6 @@
 ---
 paths:
+  - "scripts/**/*.do"
 ---
 
 # Stata Code Standards
@@ -11,20 +12,22 @@ paths:
 ## 1. Reproducibility
 
 - `set seed` called ONCE at top (YYYYMMDD format)
+- `version` set at top for cross-version reproducibility
+- All paths relative to project root
 
 
-## 2. Function Design
+## 2. Program Design
 
 - `snake_case` naming, verb-noun pattern
-- Roxygen-style documentation
-- Default parameters, no magic numbers
+- Comment header documenting purpose, inputs, outputs
+- Default parameters via `syntax`, no magic numbers
 
 
 
 ## 3. Visual Identity
 
 
-### Custom Theme
+### Custom Scheme
 
 
 ### Figure Dimensions for Beamer
@@ -35,8 +38,9 @@ paths:
 
 ```
 [ ] Set seed once at top
+[ ] Version set at top
 [ ] All paths relative
-[ ] Functions documented (Roxygen)
-[ ] Figures: transparent bg 
+[ ] Programs documented
+[ ] Figures: explicit dimensions
 [ ] Comments explain WHY not WHAT
 ```

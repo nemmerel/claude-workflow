@@ -1,6 +1,6 @@
 ---
 name: create-lecture
-description: Create a new Beamer lecture from papers, existing slides, R scripts, and other materials. Guides the content creation process with notation consistency, pedagogical patterns, and collaborative iteration.
+description: Create a new Beamer lecture from papers, existing slides, Stata do-files, and other materials. Guides the content creation process with notation consistency, pedagogical patterns, and collaborative iteration.
 disable-model-invocation: true
 argument-hint: "[Topic name, e.g., 'Synthetic Control' or 'Regression Discontinuity']"
 allowed-tools: ["Read", "Grep", "Glob", "Write", "Edit", "Bash", "Task"]
@@ -16,16 +16,17 @@ Create a beautiful, pedagogically excellent Beamer lecture deck.
 
 ## CONSTRAINTS (Non-Negotiable)
 
-1. **Read the knowledge base FIRST** — notation registry, narrative arc, applications database
-2. Every new symbol MUST be checked against the notation registry
-3. Motivation before formalism — no exceptions
-4. Worked example within 2 slides of every definition
-5. Max 2 colored boxes per slide
-6. No `\pause` or overlay commands (check project rules)
-7. Transition slides at major conceptual pivots
-8. Thread at least 1 running empirical application throughout
-9. All citations verified against the bibliography
-10. **Work in batches of 5-10 slides** — share for feedback, don't bulk-dump
+1. **Start from `templates/beamer_template.tex`** — copy it to `slides/` and rename. Never create a Beamer file from scratch; always inherit the template's preamble (16:9, dark red theme, Times New Roman, listings config, no navigation symbols, frame-number footer)
+2. **Read the knowledge base FIRST** — notation registry, narrative arc, applications database
+3. Every new symbol MUST be checked against the notation registry
+4. Motivation before formalism — no exceptions
+5. Worked example within 2 slides of every definition
+6. Max 2 colored boxes per slide
+7. No `\pause` or overlay commands (check project rules)
+8. Transition slides at major conceptual pivots
+9. Thread at least 1 running empirical application throughout
+10. All citations verified against the bibliography
+11. **Work in batches of 5-10 slides** — share for feedback, don't bulk-dump
 
 ---
 
@@ -45,22 +46,23 @@ Create a beautiful, pedagogically excellent Beamer lecture deck.
 
 ### Phase 2: Structure Proposal
 - Propose outline (5-Act or 3-Part template)
-- List TikZ diagrams and R figures needed
+- List TikZ diagrams and Stata figures needed
 - List new notation to introduce
 - **GATE: User approves before Phase 3**
 
 ### Phase 3: Draft Slides (Iterative)
-- Work in batches of 5-10 slides
+- Copy `templates/beamer_template.tex` → `slides/LectureNN_Topic.tex`
+- Keep the full preamble from the template; replace only `\title`, `\author`, `\institute`, and slide content
+- Work in batches of 5-10 slides using the template's slide patterns (bullet points, math, theorem, figure, code listing, equation+commentary)
 - Check notation, apply creation patterns
 - Quality checks during drafting
 
 ### Phase 4: Figures & Code
-- R scripts following conventions
+- Stata do-files following conventions
 - TikZ diagrams in Beamer source (single source of truth)
-- Save RDS for future Quarto integration
 
 ### Phase 5: Polish & Compile
-- Full 3-pass compilation
+- Full 3-pass pdfLaTeX compilation (`pdflatex` or `latexmk -pdf`)
 - Run Devil's Advocate
 - Run Substance Review (if domain reviewer configured)
 - Update knowledge base with new notation
@@ -70,7 +72,8 @@ Create a beautiful, pedagogically excellent Beamer lecture deck.
 ## Post-Creation Checklist
 
 ```
-[ ] Lecture compiles without errors
+[ ] Preamble matches templates/beamer_template.tex
+[ ] Lecture compiles without errors (pdfLaTeX)
 [ ] No overfull hbox > 10pt
 [ ] All citations resolve
 [ ] Every definition has motivation + worked example

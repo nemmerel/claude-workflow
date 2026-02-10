@@ -13,21 +13,21 @@ paths:
 - **95/100 = Excellence** -- aspirational
 
 
-## Stata do files (.do)
+## Stata Do-Files (.do)
 
 | Severity | Issue | Deduction |
 |----------|-------|-----------|
 | Critical | Syntax errors | -100 |
 | Critical | Domain-specific bugs | -30 |
 | Critical | Hardcoded absolute paths | -20 |
-| Major | Missing set.seed() | -10 |
+| Major | Missing `set seed` | -10 |
 | Major | Missing figure generation | -5 |
 
 ## Beamer Slides (.tex)
 
 | Severity | Issue | Deduction |
 |----------|-------|-----------|
-| Critical | Latex compilation failure | -100 |
+| Critical | LaTeX compilation failure | -100 |
 | Critical | Undefined citation | -15 |
 | Critical | Overfull hbox > 10pt | -10 |
 

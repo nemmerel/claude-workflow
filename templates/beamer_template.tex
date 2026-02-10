@@ -1,0 +1,156 @@
+% BEAMER TEMPLATE — Copy this file to slides/ and rename for each lecture.
+% Compile with: pdflatex or latexmk -pdf
+\documentclass[aspectratio=169]{beamer}
+
+% Use a simple white theme
+\usetheme{default}
+\usecolortheme{default}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+% Code listings
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  backgroundcolor=\color{white},
+  frame=none,
+  xleftmargin=1em,
+}
+
+% Times New Roman font
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% Define dark red color
+\definecolor{darkred}{RGB}{139,0,0}
+
+% Set title colors to dark red
+\setbeamercolor{title}{fg=darkred}
+\setbeamercolor{frametitle}{fg=darkred}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=black}
+
+% Set itemize bullets to dark red
+\setbeamercolor{itemize item}{fg=darkred}
+\setbeamercolor{itemize subitem}{fg=darkred}
+\setbeamercolor{itemize subsubitem}{fg=darkred}
+
+% Set bullet markers to circles
+\setbeamertemplate{itemize item}{\small\raise0.5pt\hbox{\textbullet}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raise1pt\hbox{\textbullet}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{\textbullet}}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Simple footer
+\setbeamertemplate{footline}[frame number]
+
+% Title information
+\title{COURSE-NAME Lecture N:\\
+LECTURE-TITLE}
+\author{YOUR-NAME}
+\institute{YOUR-INSTITUTION}
+\date{}
+
+\begin{document}
+
+% Title slide
+\begin{frame}
+\titlepage
+\end{frame}
+
+%%% ---------------------------------------------------------------
+%%% EXAMPLE SLIDES — Delete these and replace with your content.
+%%% Each slide below demonstrates a common pattern.
+%%% ---------------------------------------------------------------
+
+% --- Pattern: Bullet points ---
+\begin{frame}{Section Title}
+\begin{itemize}
+\item First main point
+
+\item Second main point
+\begin{itemize}
+\item Supporting detail
+\item Supporting detail
+\end{itemize}
+
+\item Third main point
+\end{itemize}
+\end{frame}
+
+% --- Pattern: Inline and display math ---
+\begin{frame}{Definition or Derivation Title}
+\begin{itemize}
+\item The model is given by
+\[
+y_t = \phi y_{t-1} + \varepsilon_t
+\]
+
+\item Under the assumption that $|\phi| < 1$, we obtain
+\begin{align*}
+\mathbb{E}[y_t] &= 0 \\
+\mathrm{var}[y_t] &= \frac{\sigma^2}{1 - \phi^2}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+% --- Pattern: Theorem or formal statement ---
+\begin{frame}{Theorem Title}
+\textbf{Theorem.} \textit{Statement of the theorem in italics.}
+
+\vspace{1em}
+\begin{itemize}
+\item Implication or interpretation
+
+\item Key condition or assumption
+\end{itemize}
+\end{frame}
+
+% --- Pattern: Figure ---
+% \begin{frame}{FIGURE-TITLE}
+% \begin{center}
+% \includegraphics[width=0.7\textwidth]{figures/FIGURE_NAME.png}
+% \end{center}
+% \end{frame}
+
+% --- Pattern: Code listing (use [fragile] option) ---
+\begin{frame}[fragile]{Code Example Title}
+\begin{itemize}
+\item Description of what the code does:
+\end{itemize}
+\begin{lstlisting}
+* [Stata / R / Python code here]
+clear all
+set seed 20260210
+set obs 500
+\end{lstlisting}
+\vspace{0.5em}
+\begin{itemize}
+\item Interpretation of results
+\end{itemize}
+\end{frame}
+
+% --- Pattern: Two-part slide with spacer ---
+\begin{frame}{Equation + Commentary Title}
+\begin{align*}
+F &= \frac{(\mathrm{RSS_{full}} - (\mathrm{RSS_1} + \mathrm{RSS_2}))/k}{(\mathrm{RSS_1} + \mathrm{RSS_2})/(n_1 + n_2 - 2k)}
+\end{align*}
+
+\vspace{1em}
+\begin{itemize}
+\item Where $k$ is the parameter description
+
+\item This is known as the test/method name
+\end{itemize}
+\end{frame}
+
+\end{document}

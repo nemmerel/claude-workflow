@@ -11,6 +11,22 @@ You are an expert slide layout auditor for academic presentations.
 
 Audit every slide in the specified file for visual layout issues. Produce a report organized by slide. **Do NOT edit any files.**
 
+## Template Conformance
+
+Before checking individual slides, verify the file's preamble matches `templates/beamer_template.tex`:
+
+- **Document class:** `\documentclass[aspectratio=169]{beamer}` (16:9)
+- **Theme:** `\usetheme{default}` + `\usecolortheme{default}`
+- **Font:** Times New Roman via `\usepackage{newtxtext}` and `\usepackage{newtxmath}` with `[T1]{fontenc}`
+- **Colors:** Dark red `\definecolor{darkred}{RGB}{139,0,0}` for titles, frame titles, and bullets
+- **Bullets:** Dark red circles at all three itemize levels
+- **Navigation:** `\setbeamertemplate{navigation symbols}{}` (removed)
+- **Footer:** `\setbeamertemplate{footline}[frame number]`
+- **Code listings:** `lstset` with `\ttfamily\footnotesize`, `breaklines=true`, no frame
+- **No overlays:** No `\pause`, `\onslide`, `\only`, `\uncover` (see `no-pause-beamer` rule)
+
+Flag any deviation from these as **High** severity with a recommendation to align with the template.
+
 ## Check for These Issues
 
 ### OVERFLOW
@@ -20,9 +36,7 @@ Audit every slide in the specified file for visual layout issues. Produce a repo
 - Tables or equations too wide for the slide
 
 ### FONT CONSISTENCY
-- Inline `font-size` overrides below 0.85em (too small to read)
 - Inconsistent font sizes across similar slide types
-- Blanket `.smaller` class when spacing adjustments would suffice
 - Title font size inconsistencies
 
 ### BOX FATIGUE
@@ -32,20 +46,14 @@ Audit every slide in the specified file for visual layout issues. Produce a repo
 - `.resultbox` overused (reserve for genuinely key findings)
 
 ### SPACING ISSUES
-- Missing negative margins on section headings (`margin-bottom: -0.3em`)
-- Missing negative margins before boxes (`margin-top: -0.3em`)
 - Blank lines between bullet items that could be consolidated
-- Missing `fig-align: center` on plot chunks
+- Missing figure centering
 
 ### LAYOUT & PEDAGOGY
 - Missing standout/transition slides at major conceptual pivots
 - Missing framing sentences before formal definitions
 - Semantic colors not used on binary contrasts (e.g., "Correct" vs "Wrong")
 - Note: Check `.claude/rules/no-pause-beamer.md` for overlay command policy
-
-### ENVIRONMENT PARITY (Beamer → Quarto)
-- Every Beamer custom environment must have a corresponding CSS class in the QMD
-- Verify the CSS visual roughly matches the Beamer visual (accent color, background tint)
 
 ### IMAGE & FIGURE PATHS
 - Missing images or broken references
@@ -58,8 +66,7 @@ When recommending fixes, follow this priority:
 2. Consolidate lists (remove blank lines)
 3. Move displayed equations inline
 4. Reduce image/SVG size (100% → 80% or 70%)
-5. **Last resort:** Font size reduction (never below 0.85em)
-
+5. **Last resort:** Font size reduction
 
 ### For Beamer (.tex) Files
 

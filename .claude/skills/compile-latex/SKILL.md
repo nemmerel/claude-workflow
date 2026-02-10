@@ -1,6 +1,6 @@
 ---
 name: compile-latex
-description: Compile a Beamer LaTeX slide deck with XeLaTeX (3 passes + bibtex). Use when compiling lecture slides.
+description: Compile a Beamer LaTeX slide deck with pdfLaTeX (3 passes + bibtex). Use when compiling lecture slides.
 disable-model-invocation: true
 argument-hint: "[filename without .tex extension]"
 allowed-tools: ["Read", "Bash", "Glob"]
@@ -8,24 +8,24 @@ allowed-tools: ["Read", "Bash", "Glob"]
 
 # Compile Beamer LaTeX Slides
 
-Compile a Beamer slide deck using XeLaTeX with full citation resolution.
+Compile a Beamer slide deck using pdfLaTeX with full citation resolution.
 
 ## Steps
 
-1. **Navigate to Slides/ directory** and compile with 3-pass sequence:
+1. **Navigate to slides/ directory** and compile with 3-pass sequence:
 
 ```bash
-cd Slides
-TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode $ARGUMENTS.tex
+cd slides
+TEXINPUTS=../preambles:$TEXINPUTS pdflatex -interaction=nonstopmode $ARGUMENTS.tex
 BIBINPUTS=..:$BIBINPUTS bibtex $ARGUMENTS
-TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode $ARGUMENTS.tex
-TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode $ARGUMENTS.tex
+TEXINPUTS=../preambles:$TEXINPUTS pdflatex -interaction=nonstopmode $ARGUMENTS.tex
+TEXINPUTS=../preambles:$TEXINPUTS pdflatex -interaction=nonstopmode $ARGUMENTS.tex
 ```
 
 **Alternative (latexmk):**
 ```bash
-cd Slides
-TEXINPUTS=../Preambles:$TEXINPUTS BIBINPUTS=..:$BIBINPUTS latexmk -xelatex -interaction=nonstopmode $ARGUMENTS.tex
+cd slides
+TEXINPUTS=../preambles:$TEXINPUTS BIBINPUTS=..:$BIBINPUTS latexmk -pdf -interaction=nonstopmode $ARGUMENTS.tex
 ```
 
 2. **Check for warnings:**
@@ -35,7 +35,7 @@ TEXINPUTS=../Preambles:$TEXINPUTS BIBINPUTS=..:$BIBINPUTS latexmk -xelatex -inte
 
 3. **Open the PDF** for visual verification:
    ```bash
-   open Slides/$ARGUMENTS.pdf
+   open slides/$ARGUMENTS.pdf
    ```
 
 4. **Report results:**
@@ -45,12 +45,13 @@ TEXINPUTS=../Preambles:$TEXINPUTS BIBINPUTS=..:$BIBINPUTS latexmk -xelatex -inte
    - PDF page count
 
 ## Why 3 passes?
-1. First xelatex: Creates `.aux` file with citation keys
+1. First pdflatex: Creates `.aux` file with citation keys
 2. bibtex: Reads `.aux`, generates `.bbl` with formatted references
-3. Second xelatex: Incorporates bibliography
-4. Third xelatex: Resolves all cross-references with final page numbers
+3. Second pdflatex: Incorporates bibliography
+4. Third pdflatex: Resolves all cross-references with final page numbers
 
 ## Important
-- **Always use XeLaTeX**, never pdflatex
-- **TEXINPUTS** is required: your Beamer theme lives in `Preambles/`
-- **BIBINPUTS** is required: your `.bib` file lives in the repo root
+- **Always use pdfLaTeX** (`pdflatex` or `latexmk -pdf`), not XeLaTeX
+- **Template:** New lectures must follow the style in `templates/beamer_template.tex` (16:9, dark red theme, Times New Roman via newtxtext/newtxmath, no navigation symbols, frame-number footer)
+- **TEXINPUTS** is required if your Beamer preamble lives in a separate directory
+- **BIBINPUTS** is required if your `.bib` file lives outside the slides directory
