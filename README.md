@@ -75,7 +75,7 @@ Every file gets a score (0–100). Scores below threshold block the action:
 ## What's Included
 
 <details>
-<summary><strong>7 agents, 14 skills, 14 rules, 4 hooks</strong> (click to expand)</summary>
+<summary><strong>8 agents, 15 skills, 14 rules, 4 hooks</strong> (click to expand)</summary>
 
 ### Agents (`.claude/agents/`)
 
@@ -102,6 +102,7 @@ Every file gets a score (0–100). Scores below threshold block the action:
 | `/validate-bib` | Cross-reference citations against bibliography |
 | `/devils-advocate` | Challenge design decisions before committing |
 | `/create-lecture` | Full lecture creation workflow |
+| `/create-pset` | Graduate problem set creation workflow |
 | `/commit` | Stage, commit, create PR, and merge to main |
 | `/lit-review` | Literature search, synthesis, and gap identification |
 | `/research-ideation` | Generate research questions and empirical strategies |

@@ -80,6 +80,7 @@
 | `/validate-bib` | Cross-reference citations |
 | `/devils-advocate` | Challenge slide design |
 | `/create-lecture` | Full lecture creation |
+| `/create-pset [topic]` | Problem set creation |
 | `/commit [msg]` | Stage, commit, PR, merge |
 | `/lit-review [topic]` | Literature search + synthesis |
 | `/research-ideation [topic]` | Research questions + strategies |
