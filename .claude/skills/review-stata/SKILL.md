@@ -2,7 +2,7 @@
 name: review-stata
 description: Run the Stata code review protocol on do-files. Checks code quality, reproducibility, domain correctness, and professional standards. Produces a report without editing files.
 disable-model-invocation: true
-argument-hint: "[filename or 'all' or 'LectureN']"
+argument-hint: "[filename or 'all' or project name]"
 allowed-tools: ["Read", "Grep", "Glob", "Write", "Task"]
 ---
 
@@ -14,8 +14,8 @@ Run the comprehensive Stata code review protocol.
 
 1. **Identify do-files to review:**
    - If `$ARGUMENTS` is a specific `.do` filename: review that file only
-   - If `$ARGUMENTS` is `LectureN`: review all do-files matching that lecture
-   - If `$ARGUMENTS` is `all`: review all do-files in `scripts/stata/` and `Figures/*/`
+   - If `$ARGUMENTS` is a project name: review all do-files matching that project
+   - If `$ARGUMENTS` is `all`: review all do-files in `scripts/stata/`
 
 2. **For each do-file, launch the `stata-reviewer` agent** with instructions to:
    - Follow the full protocol in the agent instructions

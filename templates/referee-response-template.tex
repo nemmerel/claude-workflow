@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{newtxtext,newtxmath}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{setspace}
+
+% Color for new text added to manuscript
+\definecolor{newtext}{RGB}{0,0,180}
+% Color for referee comments
+\definecolor{refcomment}{RGB}{100,100,100}
+
+% Command to format referee comments
+\newcommand{\refcomment}[1]{%
+    \medskip\noindent
+    \textit{\color{refcomment}#1}%
+    \medskip
+}
+
+% Command to highlight new manuscript text
+\newcommand{\newtext}[1]{\textcolor{newtext}{#1}}
+
+\hypersetup{colorlinks=true, linkcolor=blue!70!black, urlcolor=blue!70!black}
+
+\begin{document}
+
+\begin{center}
+    {\Large\bfseries Response to Referee Reports}\\[0.5em]
+    {\large [Paper Title]}\\[0.5em]
+    [Author Names]\\
+    \today
+\end{center}
+
+\bigskip
+
+% ============================================================
+\section*{Letter to the Editor}
+% ============================================================
+
+Dear [Editor Name],
+
+Thank you for the opportunity to revise our manuscript. We are grateful to the referees for their careful reading and constructive suggestions, which have significantly improved the paper.
+
+Below we provide a detailed, point-by-point response to each comment. For convenience, referee comments are shown in \textit{\color{refcomment}gray italics}, and references to new text in the manuscript are shown in \newtext{blue}.
+
+\medskip
+\noindent Sincerely,\\
+[Author Names]
+
+\newpage
+
+% ============================================================
+\section*{Response to Referee 1}
+% ============================================================
+
+\subsection*{Major Comments}
+
+\refcomment{1. [Paste referee comment here.]}
+
+Thank you for raising this point. [Your response here. Reference specific changes: ``We have added [description] to Section X (p. Y).'']
+
+\refcomment{2. [Next comment.]}
+
+[Response.]
+
+\subsection*{Minor Comments}
+
+\refcomment{1. [Minor comment.]}
+
+[Response.] We have corrected this on p. [X].
+
+
+% ============================================================
+\section*{Response to Referee 2}
+% ============================================================
+
+\subsection*{Major Comments}
+
+\refcomment{1. [Comment.]}
+
+[Response.]
+
+\subsection*{Minor Comments}
+
+\refcomment{1. [Comment.]}
+
+[Response.]
+
+
+% ============================================================
+\section*{Summary of Changes}
+% ============================================================
+
+\begin{enumerate}
+    \item [Change 1] (Section X, addressing Referee N, Comment M)
+    \item [Change 2] (Section Y, addressing Referee N, Comment M)
+    \item [Change 3] (New Table/Figure Z)
+\end{enumerate}
+
+\end{document}

@@ -1,12 +1,12 @@
 ---
 paths:
-  - "Slides/**/*.tex"
+  - "papers/**/*.tex"
   - "quality_reports/**"
 ---
 
 # Proofreading Agent Protocol (MANDATORY)
 
-**Every lecture file MUST be reviewed before any commit or PR.**
+**Every manuscript MUST be reviewed before any commit or PR.**
 
 **CRITICAL RULE: The agent must NEVER apply changes directly. It proposes all changes for review first.**
 
@@ -14,9 +14,10 @@ paths:
 
 1. **Grammar** -- subject-verb agreement, missing articles, wrong prepositions
 2. **Typos** -- misspellings, search-and-replace corruption, duplicated words
-3. **Overflow** -- overfull hbox (Beamer), content exceeding slide boundaries
-4. **Consistency** -- notation, citation style (`\citet` vs `\citep`), terminology
+3. **Overflow** -- overfull hbox/vbox, tables exceeding margins
+4. **Consistency** -- notation, citation style (`\citet` vs `\citep`), terminology, cross-references
 5. **Academic quality** -- informal abbreviations, missing words, awkward phrasing
+6. **Table/figure quality** -- self-contained captions, significance stars, decimal consistency
 
 ## Three-Phase Workflow
 
@@ -25,11 +26,11 @@ paths:
 Each agent:
 1. Reads the entire file
 2. Produces a **report** with every proposed change:
-   - Location (line number or slide title)
+   - Location (section, line number, or table/figure reference)
    - Current text
    - Proposed fix
-   - Category (grammar / typo / overflow / consistency)
-3. Saves report to `quality_reports/` (e.g., `quality_reports/LectureN_Topic_report.md`)
+   - Category (grammar / typo / overflow / consistency / table-figure)
+3. Saves report to `quality_reports/` (e.g., `quality_reports/[paper]_proofread_report.md`)
 4. **Does NOT modify any source files**
 
 ### Phase 2: Review & Approve

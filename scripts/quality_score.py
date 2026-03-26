@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Quality Scoring System for Academic Course Materials
+Quality Scoring System for Economic Research Projects
 
 Calculates objective quality scores (0-100) based on defined rubrics.
 Enforces quality gates: 80 (commit), 90 (PR), 95 (excellence).
 
 Usage:
-    python scripts/quality_score.py Slides/Lecture01_Topic.tex
+    python scripts/quality_score.py papers/drafts/my_paper.tex
     python scripts/quality_score.py scripts/stata/analysis.do
-    python scripts/quality_score.py Slides/*.tex --summary
+    python scripts/quality_score.py papers/drafts/*.tex --summary
 """
 
 import sys
@@ -38,18 +38,19 @@ STATA_RUBRIC = {
     }
 }
 
-BEAMER_RUBRIC = {
+LATEX_RUBRIC = {
     'critical': {
         'compilation_failure': {'points': 100, 'auto_fail': True},
         'undefined_citation': {'points': 15},
         'overfull_hbox': {'points': 10},
+        'missing_table_figure': {'points': 10},
     },
     'major': {
-        'text_overflow': {'points': 5},
+        'broken_crossref': {'points': 5},
         'notation_inconsistency': {'points': 3},
     },
     'minor': {
-        'font_size_reduction': {'points': 1},
+        'style_violation': {'points': 1},
     }
 }
 
@@ -294,8 +295,8 @@ class QualityScorer:
         self.score = max(0, self.score)
         return self._generate_report()
 
-    def score_beamer(self) -> Dict:
-        """Score Beamer/LaTeX lecture slides."""
+    def score_latex(self) -> Dict:
+        """Score LaTeX research paper or slides."""
         content = self.filepath.read_text(encoding='utf-8')
 
         # Check for LaTeX syntax issues (without compiling)
@@ -313,29 +314,21 @@ class QualityScorer:
             return self._generate_report()
 
         # Check for undefined/broken citations
-        bib_file = self.filepath.parent.parent / 'Bibliography_base.bib'
+        bib_file = self.filepath.parent.parent / 'bibliography_base.bib'
         if not bib_file.exists():
-            bib_file = self.filepath.parent / 'Bibliography_base.bib'
+            bib_file = self.filepath.parent / 'bibliography_base.bib'
+        if not bib_file.exists():
+            # Try project root
+            bib_file = Path('bibliography_base.bib')
         broken_citations = IssueDetector.check_broken_citations(content, bib_file)
         for key in broken_citations:
             self.issues['critical'].append({
                 'type': 'undefined_citation',
                 'description': f'Citation key not in bibliography: {key}',
-                'details': 'Add to Bibliography_base.bib or fix key',
+                'details': 'Add to bibliography_base.bib or fix key',
                 'points': 15
             })
             self.score -= 15
-
-        # Check for lines likely to cause overfull hbox
-        overfull_lines = IssueDetector.check_overfull_hbox_risk(content)
-        for line in overfull_lines:
-            self.issues['critical'].append({
-                'type': 'overfull_hbox',
-                'description': f'Potential overfull hbox at line {line}',
-                'details': 'Line >120 chars inside frame may overflow slide width',
-                'points': 10
-            })
-            self.score -= 10
 
         # Check equation overflow
         equation_overflows = IssueDetector.check_equation_overflow(content)
@@ -479,20 +472,20 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Score a Beamer/LaTeX file
-  python scripts/quality_score.py Slides/Lecture01_Topic.tex
+  # Score a LaTeX research paper
+  python scripts/quality_score.py papers/drafts/my_paper.tex
 
   # Score a Stata do-file
   python scripts/quality_score.py scripts/stata/analysis.do
 
   # Score multiple files
-  python scripts/quality_score.py Slides/*.tex
+  python scripts/quality_score.py papers/drafts/*.tex
 
   # Summary only (no detailed issues)
-  python scripts/quality_score.py Slides/Lecture01.tex --summary
+  python scripts/quality_score.py papers/drafts/my_paper.tex --summary
 
   # Verbose output (include minor issues)
-  python scripts/quality_score.py Slides/Lecture01.tex --verbose
+  python scripts/quality_score.py papers/drafts/my_paper.tex --verbose
 
 Quality Thresholds:
   80/100 = Commit threshold (blocks if below)
@@ -528,7 +521,7 @@ Exit Codes:
             if filepath.suffix == '.do':
                 report = scorer.score_stata()
             elif filepath.suffix == '.tex':
-                report = scorer.score_beamer()
+                report = scorer.score_latex()
             else:
                 print(f"Error: Unsupported file type: {filepath.suffix}")
                 continue

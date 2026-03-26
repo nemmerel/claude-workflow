@@ -28,6 +28,15 @@ __pycache__/
 
 # Stata
 *.smcl
+*.dta
+
+# Data (raw data should not be committed)
+data/raw/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
 
 # OS files
 .DS_Store

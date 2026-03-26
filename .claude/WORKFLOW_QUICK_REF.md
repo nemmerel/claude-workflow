@@ -8,13 +8,13 @@
 
 ```
 Your instruction
-    ↓
-[PLAN] (if multi-file or unclear) → Show plan → Your approval
-    ↓
+    |
+[PLAN] (if multi-file or unclear) -> Show plan -> Your approval
+    |
 [EXECUTE] Implement, verify, done
-    ↓
+    |
 [REPORT] Summary + what's ready
-    ↓
+    |
 Repeat
 ```
 
@@ -34,7 +34,7 @@ Repeat
 - Code fix is obvious (bug, pattern application)
 - Verification (tolerance checks, tests, compilation)
 - Documentation (logs, commits)
-- Plotting (per established standards)
+- Table/figure generation (per established standards)
 
 ---
 
@@ -43,6 +43,7 @@ Repeat
 | Score | Action |
 |-------|--------|
 | >= 80 | Ready to commit |
+| >= 90 | Ready for submission/circulation |
 | < 80  | Fix blocking issues |
 
 ---
@@ -53,8 +54,8 @@ Repeat
 
 - [YOUR PATH CONVENTION] (e.g., relative paths for Stata and LaTeX)
 - [YOUR SEED CONVENTION] (e.g., `set seed` once at top for stochastic code)
-- [YOUR FIGURE STANDARDS] (e.g., white bg, 300 DPI, custom scheme)
-- [YOUR COLOR PALETTE] (e.g., institutional colors)
+- [YOUR FIGURE STANDARDS] (e.g., white bg, 300 DPI, PDF for papers)
+- [YOUR TABLE STANDARDS] (e.g., booktabs, 3 decimal places, clustered SEs)
 - [YOUR TOLERANCE THRESHOLDS] (e.g., 1e-6 for point estimates)
 
 ---
@@ -67,6 +68,7 @@ Repeat
 **Reporting:** [Concise bullets? Detailed prose? Details on request?]
 **Session logs:** Always (post-plan, incremental, end-of-session)
 **Replication:** [How strict? Flag near-misses?]
+**Journal target:** [AER / QJE / Econometrica / field journal]
 
 ---
 
@@ -75,11 +77,11 @@ Repeat
 For experimental work, use the **Fast-Track** workflow:
 - Work in `explorations/` folder
 - 60/100 quality threshold (vs. 80/100 for production)
-- No plan needed — just a research value check (2 min)
+- No plan needed -- just a research value check (2 min)
 - See `.claude/rules/exploration-fast-track.md`
 
 ---
 
 ## Next Step
 
-You provide task → I plan (if needed) → Your approval → Execute → Done.
+You provide task -> I plan (if needed) -> Your approval -> Execute -> Done.

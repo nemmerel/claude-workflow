@@ -30,7 +30,9 @@ paths:
 ### Custom Scheme
 
 
-### Figure Dimensions for Beamer
+### Figure Dimensions for Papers
+
+<!-- Single column: width(6.5) height(4.5) | Double column: width(3.25) height(2.5) -->
 
 
 

@@ -1,6 +1,6 @@
 ---
 paths:
-  - "slides/**/*.tex"
+  - "papers/**/*.tex"
   - "scripts/**/*.do"
 ---
 
@@ -9,7 +9,7 @@ paths:
 ## Thresholds
 
 - **80/100 = Commit** -- good enough to save
-- **90/100 = PR** -- ready for deployment
+- **90/100 = PR / Submission** -- ready for circulation or journal submission
 - **95/100 = Excellence** -- aspirational
 
 
@@ -21,15 +21,18 @@ paths:
 | Critical | Domain-specific bugs | -30 |
 | Critical | Hardcoded absolute paths | -20 |
 | Major | Missing `set seed` | -10 |
-| Major | Missing figure generation | -5 |
+| Major | Missing figure/table generation | -5 |
 
-## Beamer Slides (.tex)
+## Research Papers (.tex)
 
 | Severity | Issue | Deduction |
 |----------|-------|-----------|
 | Critical | LaTeX compilation failure | -100 |
 | Critical | Undefined citation | -15 |
 | Critical | Overfull hbox > 10pt | -10 |
+| Major | Missing table/figure file | -10 |
+| Major | Broken cross-reference | -5 |
+| Minor | Inconsistent notation across sections | -5 |
 
 ## Enforcement
 

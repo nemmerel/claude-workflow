@@ -1,7 +1,7 @@
 ---
 paths:
   - "scripts/**/*.do"
-  - "Figures/**/*.do"
+  - "output/**"
 ---
 
 # Replication-First Protocol
@@ -26,7 +26,7 @@ Before writing any Stata code:
 | Main ATT | Table 2, Col 3 | -1.632 | (0.584) | Primary specification |
 ```
 
-- [ ] Store targets in `quality_reports/LectureNN_replication_targets.md` or as .dta
+- [ ] Store targets in `quality_reports/[project]_replication_targets.md` or as .dta
 
 ---
 
@@ -68,7 +68,7 @@ Before writing any Stata code:
 
 ### Replication Report
 
-Save to `quality_reports/LectureNN_replication_report.md`:
+Save to `quality_reports/[project]_replication_report.md`:
 
 ```markdown
 # Replication Report: [Paper Author (Year)]
@@ -99,5 +99,5 @@ Save to `quality_reports/LectureNN_replication_report.md`:
 After replication is verified (all targets PASS):
 
 - [ ] Commit replication do-file: "Replicate [Paper] Table X -- all targets match"
-- [ ] Now extend with course-specific modifications (different estimators, new figures, etc.)
+- [ ] Now extend with project-specific modifications (different estimators, new figures, etc.)
 - [ ] Each extension builds on the verified baseline

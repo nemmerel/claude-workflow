@@ -1,0 +1,179 @@
+\documentclass[12pt]{article}
+
+% ============================================================
+% Packages
+% ============================================================
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{newtxtext,newtxmath}          % Times New Roman
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}                      % Professional tables
+\usepackage{threeparttable}                % Table notes
+\usepackage{natbib}                        % Author-date citations
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{appendix}
+\usepackage{pdflscape}                     % Landscape pages for wide tables
+\usepackage{float}
+
+% ============================================================
+% Hyperref setup
+% ============================================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=blue!70!black,
+    urlcolor=blue!70!black
+}
+
+% ============================================================
+% Theorem environments
+% ============================================================
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+% ============================================================
+% Shortcuts
+% ============================================================
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\text{Var}}
+\newcommand{\Cov}{\text{Cov}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\ind}{\mathbbm{1}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+% ============================================================
+% Document
+% ============================================================
+
+\doublespacing
+
+\title{[YOUR PAPER TITLE]\thanks{[Acknowledgments. Author affiliations and contact info.]}}
+
+\author{
+    [Author One]\thanks{[Affiliation, email]} \and
+    [Author Two]\thanks{[Affiliation, email]}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent
+[Your abstract here. 100--150 words. State the question, method, main finding, and contribution.]
+\end{abstract}
+
+\medskip
+
+\noindent\textbf{JEL Codes:} [C00, D00, J00]
+
+\noindent\textbf{Keywords:} [keyword one, keyword two, keyword three]
+
+\newpage
+
+% ============================================================
+\section{Introduction}\label{sec:introduction}
+% ============================================================
+
+% Paragraph 1: What is the question and why does it matter?
+% Paragraph 2: What do you do? (method and data)
+% Paragraph 3: What do you find? (main results)
+% Paragraph 4: Why should we believe it? (identification, robustness)
+% Paragraph 5: How does this relate to existing work? (contribution)
+% Paragraph 6: Roadmap
+
+
+% ============================================================
+\section{Literature Review}\label{sec:literature}
+% ============================================================
+
+
+% ============================================================
+\section{Data}\label{sec:data}
+% ============================================================
+
+% Describe data sources, sample construction, key variables
+% Include summary statistics table
+
+% \input{../../output/tables/summary_statistics.tex}
+
+
+% ============================================================
+\section{Empirical Strategy}\label{sec:identification}
+% ============================================================
+
+% State the estimand
+% Describe the identification strategy
+% State identifying assumptions
+% Discuss threats
+
+
+% ============================================================
+\section{Results}\label{sec:results}
+% ============================================================
+
+% Main results table
+% \input{../../output/tables/main_results.tex}
+
+% Event study or dynamic effects figure
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=\textwidth]{../../output/figures/event_study.pdf}
+%     \caption{[Descriptive caption]}
+%     \label{fig:event_study}
+% \end{figure}
+
+
+% ============================================================
+\section{Robustness}\label{sec:robustness}
+% ============================================================
+
+% Alternative specifications, placebo tests, bounds
+% \input{../../output/tables/robustness.tex}
+
+
+% ============================================================
+\section{Conclusion}\label{sec:conclusion}
+% ============================================================
+
+% Summary of findings, limitations, policy implications
+
+
+% ============================================================
+% References
+% ============================================================
+\newpage
+\singlespacing
+\bibliographystyle{aer}
+\bibliography{../../bibliography_base}
+
+
+% ============================================================
+% Appendix
+% ============================================================
+\newpage
+\begin{appendices}
+
+\section{Additional Tables and Figures}\label{sec:appendix_tables}
+
+% \input{../../output/tables/appendix_table.tex}
+
+\section{Proofs}\label{sec:appendix_proofs}
+
+\end{appendices}
+
+\end{document}
